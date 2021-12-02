@@ -1,0 +1,5 @@
+name: MarioPluginWaterFall
+version: "1.0"
+main: de.mariocst.wf.MarioMain
+author: marioCST
+description: Mario Plugin for WaterFall
