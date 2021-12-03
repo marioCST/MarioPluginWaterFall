@@ -2,6 +2,7 @@ package de.mariocst.wf;
 
 import de.mariocst.wf.commands.*;
 import de.mariocst.wf.config.Config;
+import de.mariocst.wf.listener.*;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.plugin.PluginManager;
 
@@ -18,6 +19,7 @@ public final class MarioMain extends Plugin {
 
     @Override
     public void onEnable() {
+        this.listenerRegistration();
         this.commandRegistration();
 
         this.loadConfiguration();
@@ -32,6 +34,11 @@ public final class MarioMain extends Plugin {
         this.saveConfiguration();
 
         this.log("Mario Plugin WaterFall deaktiviert!");
+    }
+
+    private void listenerRegistration() {
+        this.manager.registerListener(this, new DisconnectListener());
+        this.manager.registerListener(this, new PostLoginListener());
     }
 
     private void commandRegistration() {
