@@ -16,7 +16,7 @@ public class BKickAllCommand extends Command {
     public void execute(CommandSender sender, String[] args) {
         if (!(sender instanceof ProxiedPlayer player)) {
             for (ProxiedPlayer t : MarioMain.getInstance().getProxy().getPlayers()) {
-                if (t.hasPermission("mario.bungee.bkickall.bypass") || t.hasPermission("mario.bungee.*") || t.hasPermission("*")) return;
+                if (t.hasPermission("mario.bungee.bkickall.bypass") || t.hasPermission("mario.bungee.*") || t.hasPermission("*")) continue;
 
                 if (args.length == 0) {
                     t.disconnect(new TextComponent("Kicked by Admin"));
@@ -35,7 +35,7 @@ public class BKickAllCommand extends Command {
 
         if (player.hasPermission("mario.bungee.bkickall") || player.hasPermission("mario.bungee.*") || player.hasPermission("*")) {
             for (ProxiedPlayer t : MarioMain.getInstance().getProxy().getPlayers()) {
-                if (t == player || t.hasPermission("mario.bungee.bkickall.bypass") || t.hasPermission("mario.bungee.*") || t.hasPermission("*")) return;
+                if (t == player || t.hasPermission("mario.bungee.bkickall.bypass") || t.hasPermission("mario.bungee.*") || t.hasPermission("*")) continue;
 
                 if (args.length == 0) {
                     t.disconnect(new TextComponent("Kicked by Admin"));
